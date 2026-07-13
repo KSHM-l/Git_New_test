@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘 뭐 먹지? 김수현이 안내하는 최애 맛집</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        avocado: {
+                            50: '#f5f7f3',
+                            100: '#e5ebde',
+                            200: '#cedbbd',
+                            300: '#abc493',
+                            400: '#8ca973',
+                            500: '#6c8b52', // Main Avocado
+                            600: '#546f3e',
+                            700: '#435831',
+                        },
+                        lemon: {
+                            100: '#fffbeb',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308', // Point Lemon
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & Pretendard Font Import -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #f5f7f3 0%, #e5ebde 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+<header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-avocado-100">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+        <a href="#" class="flex items-center space-x-2">
+            <span class="text-2xl">🥑</span>
+            <span class="font-bold text-lg text-avocado-700 tracking-tight">수현's 맛집 알고리즘</span>
+        </a>
+        <nav class="hidden md:flex space-x-6 text-sm font-medium text-gray-600">
+            <a href="#story" class="hover:text-avocado-500 transition-colors">싸피 웰컴 스토리</a>
+            <a href="#strengths" class="hover:text-avocado-500 transition-colors">매력 포인트</a>
+            <a href="#matcher" class="hover:text-avocado-500 transition-colors">상황별 매칭</a>
+            <a href="#directory" class="hover:text-avocado-500 transition-colors">전체 맛집 디렉토리</a>
+        </nav>
+        <div class="flex items-center space-x-2">
+            <span class="px-2.5 py-1 bg-avocado-100 text-avocado-700 rounded-full text-xs font-semibold">SSAFY 16기 전용</span>
+        </div>
+    </div>
+</header>
+
+<section class="gradient-bg py-16 md:py-24 px-4 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-40">
+        <div class="absolute top-10 left-10 w-24 h-24 bg-avocado-200 rounded-full filter blur-xl animate-pulse"></div>
+        <div class="absolute bottom-10 right-10 w-32 h-32 bg-lemon-300 rounded-full filter blur-xl animate-pulse delay-700"></div>
+    </div>
+    
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-white border border-avocado-200 rounded-full text-xs font-semibold text-avocado-700 mb-6 shadow-sm">
+            <span class="flex h-2 w-2 rounded-full bg-emerald-500"></span>
+            로컬 기획자 김수현의 100% 찐 사심 가이드
+        </div>
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 leading-tight mb-6">
+            오늘 뭐 먹지? <br class="md:hidden">
+            <span class="text-avocado-600 underline decoration-lemon-400 decoration-wavy decoration-2">김수현이 안내하는</span><br class="hidden md:inline">
+            <span class="relative">
+                최애 맛집 리스트
+                <span class="absolute -top-1 -right-4 text-xs bg-lemon-400 text-gray-900 px-1.5 py-0.5 rounded font-mono font-bold rotate-12">v16.0</span>
+            </span>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+            광주 지리가 낯설고 외로운 싸피 16기 타 지역 동기들을 위해 준비했습니다. 광고 스폰서십 0%, 코드 에러보다 짜증 나는 '메뉴 고민'을 완벽하게 리팩토링해 줄 현지인 맛집 솔루션!
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="#matcher" class="px-8 py-4 bg-avocado-500 text-white font-bold rounded-xl shadow-lg shadow-avocado-600/20 hover:bg-avocado-600 hover:-translate-y-0.5 transition-all text-center flex items-center justify-center gap-2">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> 5초 만에 메뉴 디버깅하기
+            </a>
+            <a href="#directory" class="px-8 py-4 bg-white border border-gray-200 text-gray-700 font-bold rounded-xl hover:bg-gray-50 hover:border-gray-300 hover:-translate-y-0.5 transition-all text-center flex items-center justify-center gap-2">
+                <i class="fa-solid fa-list"></i> 전체 맛집 16선 구경하기
+            </a>
+        </div>
+    </div>
+</section>
+
+<section id="story" class="py-16 bg-white px-4">
+    <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-xs font-bold text-avocado-600 uppercase tracking-wider">Storytelling Flow</h2>
+            <p class="text-3xl font-extrabold text-gray-900 mt-2">싸피 맞춤형 밀착 케어 서비스</p>
+            <p class="text-gray-500 mt-2">알고리즘 문제 풀이보다 더 진지하게 설계한 4단계 힐링 루트</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+            <!-- Timeline Connect Line for Desktop -->
+            <div class="hidden md:block absolute top-1/2 left-4 right-4 h-0.5 bg-avocado-100 -translate-y-4 -z-0"></div>
+            
+            <!-- Step 1 -->
+            <div class="bg-avocado-50/50 p-6 rounded-2xl border border-avocado-100 relative z-10 hover:shadow-md transition-shadow">
+                <div class="w-10 h-10 bg-avocado-500 text-white rounded-xl flex items-center justify-center font-bold text-lg mb-4 shadow-sm">01</div>
+                <h3 class="font-bold text-lg text-gray-900 mb-2">웰컴 환영 인사 👋</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    연고 없는 광주에서 매일 9to6 코딩하느라 고생하는 우리 16기 동기님들, 진짜 대단하고 반가워요!
+                </p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="bg-avocado-50/50 p-6 rounded-2xl border border-avocado-100 relative z-10 hover:shadow-md transition-shadow">
+                <div class="w-10 h-10 bg-avocado-500 text-white rounded-xl flex items-center justify-center font-bold text-lg mb-4 shadow-sm">02</div>
+                <h3 class="font-bold text-lg text-gray-900 mb-2">무한 메뉴 루프 공감 🤯</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    "오늘 뭐 먹지?" 고민으로 브레이크 포인트 걸려본 적 있죠? 프로젝트 스트레스는 음식으로 디버깅해야 합니다.
+                </p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="bg-avocado-50/50 p-6 rounded-2xl border border-avocado-100 relative z-10 hover:shadow-md transition-shadow">
+                <div class="w-10 h-10 bg-lemon-400 text-gray-900 rounded-xl flex items-center justify-center font-bold text-lg mb-4 shadow-sm">03</div>
+                <h3 class="font-bold text-lg text-gray-900 mb-2">내 최애 핫플 해결 🍽️</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    광고글에 속아 입맛 버리지 않도록, 기획자 김수현의 최애 데이터베이스(DB)에서 검증된 리스트만 던집니다.
+                </p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="bg-avocado-50/50 p-6 rounded-2xl border border-avocado-100 relative z-10 hover:shadow-md transition-shadow">
+                <div class="w-10 h-10 bg-lemon-400 text-gray-900 rounded-xl flex items-center justify-center font-bold text-lg mb-4 shadow-sm">04</div>
+                <h3 class="font-bold text-lg text-gray-900 mb-2">맛있게 해결 행동 유도 🚀</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    지친 몸과 마음에 맛있는 에너지 주입 완료! 이번 주말은 동기들과 식사 후 로컬 산책과 카페 연계 코스까지 정주행!
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="strengths" class="py-16 bg-gradient-to-b from-white to-avocado-50/30 px-4">
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-xs font-bold text-avocado-600 uppercase tracking-wider">Key Strengths</h2>
+            <p class="text-3xl font-extrabold text-gray-900 mt-2">이 가이드만의 특별한 코드</p>
+            <p class="text-gray-500 mt-2">단순한 식당 리스트가 아닌 싸피 16기 헌정 힐링 패키지</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Strength 1 -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all group">
+                <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-heart text-xl"></i>
+                </div>
+                <h3 class="font-bold text-lg text-gray-900 mb-2">사심 가득 찐맛집</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    직접 먹어보고 재방문률 200%를 달성한 기획자의 검증된 최애 리스트만 필터링 없이 수록했습니다.
+                </p>
+            </div>
+
+            <!-- Strength 2 -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all group">
+                <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-ban text-xl"></i>
+                </div>
+                <h3 class="font-bold text-lg text-gray-900 mb-2">바이럴 광고 배제</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    상위 노출 유도 광고, 가짜 리뷰에 상처받은 미식가를 위해 로컬의 순수한 숨은 가치를 증명합니다.
+                </p>
+            </div>
+
+            <!-- Strength 3 -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all group">
+                <div class="w-12 h-12 rounded-xl bg-yellow-50 text-yellow-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-terminal text-xl"></i>
+                </div>
+                <h3 class="font-bold text-lg text-gray-900 mb-2">싸피 맞춤 TPO</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    "주말 퀵코딩 런치", "프로젝트 뒤풀이", "밤샘 코딩 해장용" 등 상황별 완벽 맞춤 카테고리를 분류했습니다.
+                </p>
+            </div>
+
+            <!-- Strength 4 -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all group">
+                <div class="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-route text-xl"></i>
+                </div>
+                <h3 class="font-bold text-lg text-gray-900 mb-2">카페 연계 꿀동선</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    식사하고 갈 카페 찾는 귀찮음은 아웃! 식당 근처 산책로와 꿀맛 카페로 연결되는 알고리즘 동선을 설계했습니다.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="matcher" class="py-16 bg-avocado-100/50 px-4">
+    <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-10">
+            <span class="px-3 py-1 bg-avocado-200/60 text-avocado-800 rounded-full text-xs font-bold">Menu Debugger</span>
+            <h2 class="text-3xl font-extrabold text-gray-900 mt-2">상황별 맛집 디버거 🛠️</h2>
+            <p class="text-gray-600 mt-2">오늘 당신의 스트레스 지수나 원하는 분위기를 선택해 코스를 바로 추천받으세요!</p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 md:p-10 shadow-xl border border-avocado-200">
+            <h3 class="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <span class="w-2.5 h-2.5 bg-lemon-500 rounded-full animate-ping"></span>
+                STEP 1: 오늘 당신의 현재 상황(TPO)은?
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8" id="tpo-buttons">
+                <button onclick="selectTpo('exhausted')" class="tpo-btn text-left p-4 rounded-xl border-2 border-gray-100 hover:border-avocado-400 hover:bg-avocado-50/30 transition-all flex items-start gap-4">
+                    <span class="text-2xl mt-0.5">🤯</span>
+                    <div>
+                        <p class="font-bold text-gray-900">프로젝트 코드 꼬인 날</p>
+                        <p class="text-xs text-gray-500 mt-1">극강의 자극이 필요하다! 스트레스를 한 번에 격파할 매콤/든든 맛</p>
+                    </div>
+                </button>
+                <button onclick="selectTpo('sober')" class="tpo-btn text-left p-4 rounded-xl border-2 border-gray-100 hover:border-avocado-400 hover:bg-avocado-50/30 transition-all flex items-start gap-4">
+                    <span class="text-2xl mt-0.5">😵‍💫</span>
+                    <div>
+                        <p class="font-bold text-gray-900">어제 과음하고 해장이 필요한 날</p>
+                        <p class="text-xs text-gray-500 mt-1">속을 시원하게 정화하고 뇌를 리셋해 줄 해장 국물 솔루션</p>
+                    </div>
+                </button>
+                <button onclick="selectTpo('weekend')" class="tpo-btn text-left p-4 rounded-xl border-2 border-gray-100 hover:border-avocado-400 hover:bg-avocado-50/30 transition-all flex items-start gap-4">
+                    <span class="text-2xl mt-0.5">🌿</span>
+                    <div>
+                        <p class="font-bold text-gray-900">주말 힐링 & 카페 투어가 필요한 날</p>
+                        <p class="text-xs text-gray-500 mt-1">근처 산책 동선과 무드 가득한 카페 연계형 감성 충전 코스</p>
+                    </div>
+                </button>
+                <button onclick="selectTpo('party')" class="tpo-btn text-left p-4 rounded-xl border-2 border-gray-100 hover:border-avocado-400 hover:bg-avocado-50/30 transition-all flex items-start gap-4">
+                    <span class="text-2xl mt-0.5">🍻</span>
+                    <div>
+                        <p class="font-bold text-gray-900">프로젝트 무사 통과 후 회식하는 날</p>
+                        <p class="text-xs text-gray-500 mt-1">동기들과 삼삼오오 모여 수다 떨기 좋은 하이-퍼포먼스 공간</p>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Recommendation Result Box -->
+            <div id="matcher-result" class="hidden bg-avocado-50 rounded-2xl p-6 border border-avocado-200 transition-all duration-300">
+                <div class="flex items-center justify-between mb-4 pb-4 border-b border-avocado-200">
+                    <span class="text-sm font-bold text-avocado-800 flex items-center gap-1.5">
+                        <i class="fa-solid fa-circle-check"></i> 오늘의 완벽 추천 코스 디버깅 완료
+                    </span>
+                    <button onclick="resetMatcher()" class="text-xs text-gray-500 hover:text-avocado-700 underline">다시 매칭하기</button>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Recommended Restaurant -->
+                    <div class="bg-white p-5 rounded-xl border border-avocado-100 shadow-sm relative">
+                        <span class="absolute -top-3 -left-2 bg-avocado-500 text-white text-xs px-2.5 py-0.5 rounded font-bold">추천 맛집</span>
+                        <h4 id="res-name" class="font-bold text-xl text-gray-900 mt-1">학짬뽕</h4>
+                        <p id="res-desc" class="text-sm text-gray-600 mt-1">"스트레스 지수 404에 직면했을 때 매운 짬뽕으로 강제 예외처리!"</p>
+                        <div class="mt-4 flex items-center justify-between text-xs text-gray-500">
+                            <span id="res-tpo" class="bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full font-medium">#스트레스_해소</span>
+                            <span>📍 상세 위치 정보는 하단 디렉토리 참조</span>
+                        </div>
+                    </div>
+
+                    <!-- Recommended Cafe -->
+                    <div class="bg-white p-5 rounded-xl border border-avocado-100 shadow-sm relative">
+                        <span class="absolute -top-3 -left-2 bg-lemon-400 text-gray-900 text-xs px-2.5 py-0.5 rounded font-bold">추천 디저트 & 카페</span>
+                        <h4 id="cafe-name" class="font-bold text-xl text-gray-900 mt-1">포지로스터리</h4>
+                        <p id="cafe-desc" class="text-sm text-gray-600 mt-1">"묵직한 바디감의 에스프레소로 다시 각성하고 버그 잡으러 고!"</p>
+                        <div class="mt-4 flex items-center justify-between text-xs text-gray-500">
+                            <span id="cafe-tpo" class="bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full font-medium">#딥워크_에스프레소</span>
+                            <span>📍 상세 위치 정보는 하단 디렉토리 참조</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 p-4 bg-yellow-50 rounded-xl border border-yellow-200 flex items-center gap-3">
+                    <span class="text-2xl">💡</span>
+                    <p class="text-xs text-amber-900 font-medium">
+                        <strong class="font-bold">기획자 수현의 꿀팁:</strong> 
+                        <span id="matching-tip">짬뽕 국물로 불타는 입을 달달한 라떼나 에스프레소로 코팅해주면, 그게 바로 완벽한 오버플로우 방지 알고리즘입니다.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="directory" class="py-16 bg-white px-4">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-xs font-bold text-avocado-600 uppercase tracking-wider">Taste Database</h2>
+            <p class="text-3xl font-extrabold text-gray-900 mt-2">수현의 데이터베이스 쿼리 🔍</p>
+            <p class="text-gray-500 mt-2">16개의 찐 로컬 핫플을 종류별, 조건별로 완벽 필터링해보세요.</p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-8 flex flex-col md:flex-row gap-4 items-center justify-between">
+            <!-- Category Tabs -->
+            <div class="flex flex-wrap gap-2 w-full md:w-auto">
+                <button onclick="filterCategory('all')" id="tab-all" class="tab-btn px-4 py-2 rounded-xl text-sm font-bold bg-avocado-500 text-white shadow-sm transition-all">
+                    전체 보기 (${total})
+                </button>
+                <button onclick="filterCategory('food')" id="tab-food" class="tab-btn px-4 py-2 rounded-xl text-sm font-bold bg-white text-gray-600 border border-gray-200 hover:bg-gray-100 transition-all">
+                    🍚 맛집 9곳
+                </button>
+                <button onclick="filterCategory('cafe')" id="tab-cafe" class="tab-btn px-4 py-2 rounded-xl text-sm font-bold bg-white text-gray-600 border border-gray-200 hover:bg-gray-100 transition-all">
+                    ☕ 디저트/카페 7곳
+                </button>
+            </div>
+
+            <!-- Search input -->
+            <div class="relative w-full md:w-80">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
+                    <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                </span>
+                <input type="text" id="searchInput" oninput="searchItems()" placeholder="메뉴 이름, 태그, 한줄평 검색..." class="w-full pl-9 pr-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-avocado-400 focus:border-avocado-400 bg-white shadow-inner">
+            </div>
+        </div>
+
+        <!-- Grid Container -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="items-grid">
+            <!-- Cards will be dynamically injected here -->
+        </div>
+
+        <!-- No search results -->
+        <div id="no-results" class="hidden text-center py-16">
+            <span class="text-5xl">🔍🚫</span>
+            <h3 class="mt-4 text-lg font-bold text-gray-700">해당 조건에 부합하는 장소가 없습니다.</h3>
+            <p class="text-sm text-gray-500 mt-1">다른 검색어나 카테고리 탭을 선택해 보세요.</p>
+        </div>
+    </div>
+</section>
+
+<div id="detail-modal" class="fixed inset-0 z-50 bg-black/50 hidden flex items-center justify-center p-4 backdrop-blur-sm">
+    <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl relative border border-gray-100 animate-in fade-in zoom-in duration-200">
+        <!-- Close Button -->
+        <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 bg-gray-100 hover:bg-gray-200 w-8 h-8 rounded-full flex items-center justify-center transition-all z-10">
+            <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+        <!-- Modal Content Container -->
+        <div id="modal-content" class="p-6">
+            <!-- Dynamic data will be injected here -->
+        </div>
+    </div>
+</div>
+
+<section class="py-16 gradient-bg px-4 border-t border-avocado-100 text-center">
+    <div class="max-w-2xl mx-auto">
+        <span class="text-2xl mb-2 block">🍕🤝🍻</span>
+        <h2 class="text-3xl font-extrabold text-gray-900 tracking-tight">"광주 지리 몰라도, 굶지 않고 든든하도록"</h2>
+        <p class="text-gray-600 mt-3 leading-relaxed">
+            지역은 달라도 밥 한술에는 따스함이 묻어나니까요. 소개한 곳 말고도 많은 맛집을 알고있으니 궁금하면 물어보세요! 고단한 하루를 맛있는 음식과 좋은 공간으로 정돈해 보세요. 기획서가 마음에 들었다면 동기들에게 바로 주소를 카피해서 전달해 보세요!
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-3">
+            <button onclick="copyToClipboard()" class="px-6 py-3 bg-avocado-600 text-white font-bold rounded-xl shadow-md hover:bg-avocado-700 transition-all flex items-center gap-2">
+                <i class="fa-regular fa-copy"></i> 가이드 링크 복사하기
+            </button>
+            <a href="https://map.kakao.com" target="_blank" class="px-6 py-3 bg-white border border-gray-300 text-gray-700 font-bold rounded-xl hover:bg-gray-50 transition-all flex items-center gap-2">
+                <i class="fa-solid fa-map-location-dot"></i> 카카오맵 검색하러 가기
+            </a>
+        </div>
+        <!-- Copy Alert message -->
+        <p id="copy-toast" class="text-sm font-semibold text-emerald-700 mt-3 opacity-0 transition-opacity duration-300">
+            🎉 주소가 클립보드에 복사되었습니다!
+        </p>
+    </div>
+</section>
+
+<footer class="bg-gray-900 text-gray-400 py-12 px-4 border-t border-gray-800">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+        <div>
+            <div class="flex items-center space-x-2 mb-3">
+                <span class="text-xl">🥑</span>
+                <span class="font-bold text-white text-lg tracking-tight">수현's 맛집 가이드</span>
+            </div>
+            <p class="text-xs text-gray-500 leading-relaxed max-w-md">
+                본 웹페이지는 싸피(SSAFY) 광주 캠퍼스 16기 타지 동기들을 위한 친근하고 실용적인 사심 100% 비영리 프로젝트 가이드입니다. 
+            </p>
+        </div>
+        <div class="text-right">
+            <p class="text-sm text-gray-300">기획자: <strong class="text-white">김수현</strong> | SSAFY Gwangju 16th</p>
+            <p class="text-xs text-gray-500 mt-1">&copy; 2026. Kim Soo-hyun. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // 9 Restaurants + 7 Cafes Data Model
+    const foodList = [
+        {
+            id: 1,
+            type: 'food',
+            name: '원조쌍촌할매청진동해장국',
+            category: '한식 / 해장국',
+            description: '머리국밥',
+            comment: '코딩 밤샘하고 지친 내 뇌세포를 뜨끈한 국물로 정렬(Sort)하고 리팩토링하기 딱 좋습니다. 뼈해장국 국물의 깊이가 다릅니다.',
+            recommender: '기획자 김수현 최애 뼈해장국',
+            address: '광주 서구 쌍촌동 인근 (상세주소 검색 권장)',
+            tags: ['#해장국', '#밤샘디버깅', '#든든한한끼', '#로컬찐맛집'],
+            emoji: '🍲',
+            tip: '시래기와 우거지가 잔뜩 들어가 씹는 맛이 있고, 육수가 텁텁하지 않아 아침 해장으로 강추해요.'
+        },
+        {
+            id: 2,
+            type: 'food',
+            name: '남원추어탕 부뚜막',
+            category: '한식 / 추어탕',
+            description: '추어탕, 추어튀김',
+            comment: '체력이 0%에 도달해 가비지 컬렉터도 안 돌아갈 수준의 날, 기력을 급속 충전시키는 보양 전용 힐링 함수입니다.',
+            recommender: '기력 회복 1순위 솔루션',
+            address: '광주 지역 내 남원추어탕 부뚜막 지점',
+            tags: ['#몸보신', '#추어탕', '#점심퀵코딩', '#부모님생각'],
+            emoji: '🐟',
+            tip: '부추를 듬뿍 넣고 들깨가루 한 숟갈 추가하면 걸쭉함이 예술입니다. 함께 나오는 어리굴젓이 핵심 도우미!'
+        },
+        {
+            id: 3,
+            type: 'food',
+            name: '산수쌈밥',
+            category: '한식 / 우렁쌈밥',
+            description: '우렁쌈밥 정식, 수육',
+            comment: '우렁쌈 가득 싸서 푸짐하게 입안에 가득 밀어넣으면, 머릿속 복잡하게 꼬여있는 DB 조인문도 깔끔하게 해소되는 느낌.',
+            recommender: '싸피인 건강 지킴이 코스',
+            address: '광주 동구 필문대로 인근 (산수동)',
+            tags: ['#우렁쌈밥', '#푸짐한정식', '#신선채소', '#가성비갑'],
+            emoji: '🥬',
+            tip: '정식을 주문하면 야들야들한 보쌈 수육과 매콤한 우렁 초무침이 한가득 나옵니다. 채소 보충에 최고예요.'
+        },
+        {
+            id: 4,
+            type: 'food',
+            name: '옥천면옥',
+            category: '면요리 / 냉면',
+            description: '함흥냉면, 갈비탕',
+            comment: '슴슴하면서도 깊은 울림을 주는 국물. 쓸데없는 중복 코드를 전부 걷어낸 초간결 클린 코드가 생각나는 깔끔한 육수입니다.',
+            recommender: '여름 시즌 더위 격파 전용',
+            address: '광주 북구 무등로 (신안동 부근)',
+            tags: ['#냉면강자', '#슴슴한매력', '#갈비탕맛집', '#클린코드'],
+            emoji: '🍜',
+            tip: '비빔냉면에 뜨끈한 육수를 자작하게 부어 먹는 옥천면옥식 변주를 경험해 보세요.'
+        },
+        {
+            id: 5,
+            type: 'food',
+            name: '학짬뽕',
+            category: '중식 / 짬뽕',
+            description: '고기짬뽕, 중화덮밥',
+            comment: '에러 404가 쏟아져서 멘탈 바스라질 때, 걸쭉하고 매콤한 짬뽕으로 강제 예외처리(Exception Handling)를 실행해 보세요!',
+            recommender: '매운맛 러버 기획자 픽',
+            address: '광주 북구 자미로 (신안동)',
+            tags: ['#인생짬뽕', '#고기짬뽕', '#스트레스해소', '#해장성지'],
+            emoji: '🌶️',
+            tip: '일반 짬뽕과 다르게 국물이 꾸덕할 정도로 무겁고 불맛이 강하게 입혀져 밥 말아먹기 아주 훌륭합니다.'
+        },
+        {
+            id: 6,
+            type: 'food',
+            name: '소중대',
+            category: '중식 / 안주 맛집',
+            description: '짜장면, 탕수육',
+            comment: '프로젝트 최종 발표 후 심신을 위로하고 동기들과 축하 세레머니를 하기에 최적화된 하이-퍼포먼스 공간입니다.',
+            recommender: '프로젝트 뒤풀이 성지',
+            address: '광주 맛집 골목 (소중대)',
+            tags: ['#회식추천', '#동기단합', '#맥주한잔', '#소중대'],
+            emoji: '🍢',
+            tip: '메인 전골 메뉴와 사이드 튀김의 밸런스가 좋아서 여럿이 몰려가 N분의 1 결제하기 가장 좋은 파티 룸!'
+        },
+        {
+            id: 7,
+            type: 'food',
+            name: '바다양푼이동태탕 광주신안점',
+            category: '한식 / 동태탕',
+            description: '양푼이 동태탕, 알곤이탕',
+            comment: '어제 동기들과 달린 소맥 디버깅을 원스톱으로 해결! 동태알과 시원한 미나리가 가득해 국물 한 입에 숙취 소거 완료.',
+            recommender: '술자리 뒤풀이 다음날 필수코스',
+            address: '광주 북구 신안동 인근',
+            tags: ['#시원칼칼', '#동태탕', '#곤이추가', '#해장알고리즘'],
+            emoji: '🐟',
+            tip: '무조건 곤이와 알 사리를 추가하세요. 라면 사리까지 넣으면 속이 안 풀릴 수 없는 최고의 컴파일러입니다.'
+        },
+        {
+            id: 8,
+            type: 'food',
+            name: '나주곰탕 송정동 1001-7',
+            category: '한식 / 국밥',
+            description: '맑은 나주곰탕, 수육곰탕',
+            comment: '탁하지 않은 영롱하고 맑은 고기 국물처럼, 고생 끝에 정렬될 코딩 아키텍처를 꿈꾸며 마시는 한 그릇의 맑은 응원.',
+            recommender: '기획자의 보석 같은 단골집',
+            address: '광주 광산구 송정동 1001-7',
+            tags: ['#나주곰탕', '#맑은국물', '#송정동투어', '#국밥의표준'],
+            emoji: '🥣',
+            tip: '깍두기가 아주 훌륭하게 익었습니다. 맑은 고기 국물에 토렴된 밥알을 깍두기와 콜라보해보세요.'
+        },
+        {
+            id: 9,
+            type: 'food',
+            name: '마리오셰프',
+            category: '양식 / 이탈리안',
+            description: '파스타, 리조또, 스테이크',
+            comment: '주말 퀵코딩 데이트 혹은 나에게 주는 근사한 선물 클래스 상속! 정갈한 분위기 속에서 양식 맛을 수혈해 보세요.',
+            recommender: '분위기 있는 특별한 날 맛집',
+            address: '광주 북구 신안로 근처',
+            tags: ['#파스타맛집', '#데이트무드', '#마리오셰프', '#인스타감성'],
+            emoji: '🍝',
+            tip: '라자냐 혹은 꾸덕한 크림 파스타 종류가 매우 맛있으니 식기 전에 드시길 추천드립니다.'
+        },
+        {
+            id: 10,
+            type: 'cafe',
+            name: '비미 (Bimi)',
+            category: '디저트 카페',
+            description: '스페셜티 커피, 디저트 타르트',
+            comment: '당 수치가 아슬아슬하게 Overflow 되기 직전, 극강의 고급 디저트로 안전 마진을 마련할 수 있는 비밀 기지.',
+            recommender: '고급 당충전 보증 수표',
+            address: '광주 서구 쌍촌동/동명동 부근',
+            tags: ['#디저트천국', '#타르트맛집', '#당수치UP', '#휴식공간'],
+            emoji: '🍰',
+            tip: '계절 과일 타르트와 아이스 드립 커피의 매칭은 오후 3시 졸음을 강제 퇴치하는 치트키입니다.'
+        },
+        {
+            id: 11,
+            type: 'cafe',
+            name: '부부더상록',
+            category: '카페 / 베이커리',
+            description: '베이커리 카페, 케이크',
+            comment: '상록수처럼 언제 가도 변함없이 아늑하고 다정하게 맞아주는 기획자 김수현의 최애 쉼표(Semicolon) 같은 곳.',
+            recommender: '따스한 감성 치유 카페',
+            address: '광주 농성동/쌍촌동 부근 상록 공원 인근',
+            tags: ['#베이커리', '#케이크맛집', '#감성카페', '#힐링스페이스'],
+            emoji: '🧁',
+            tip: '계절 크림이 올라간 시그니처 케이크 라인업은 무조건 선택하셔야 마음의 평화가 찾아옵니다.'
+        },
+        {
+            id: 12,
+            type: 'cafe',
+            name: '포지로스터리 (Forge Roastery)',
+            category: '에스프레소 바',
+            description: '로스터리 스페셜 에스프레소',
+            comment: '에스프레소 한 잔을 목줄기로 넘기는 순간, 온몸에 고농도 카페인이 바인딩되어 코딩 각성 모드로 하이퍼 루프 탑승.',
+            recommender: '진정한 커피 매니아의 고정픽',
+            address: '광주 로컬 에스프레소 성지',
+            tags: ['#로스터리', '#에스프레소', '#각성모드', '#커피장인'],
+            emoji: '☕',
+            tip: '콘파냐나 스트라파짜토 에스프레소 한 잔으로 기분을 가볍게 리셋해보세요.'
+        },
+        {
+            id: 13,
+            type: 'cafe',
+            name: '라이드올스테디',
+            category: '필터 커피 전문',
+            description: '필터커피, 싱글오리진 원두',
+            comment: '한결같고 묵묵한 템포로 뚝심 있게 집중할 때 필요한 필터 커피. 커피 잔에 투영된 나를 반추해보는 차분한 분위기.',
+            recommender: '차분하게 생각 정리할 때',
+            address: '광주 북구 인근 로컬',
+            tags: ['#필터커피', '#핸드드립', '#고요한작업', '#스페셜티'],
+            emoji: '☕',
+            tip: '에티오피아 아이스 브루잉은 화사한 산미와 과일 향이 가득해 머리를 맑게 식혀 줍니다.'
+        },
+        {
+            id: 14,
+            type: 'cafe',
+            name: '보램보램',
+            category: '감성 카페 / 다과',
+            description: '차, 드립커피, 동양식 디저트',
+            comment: '독특하고 차분한 인테리어와 정적인 감성. 뇌 과부하 발생 시 잠시 모든 브레이크 포인트를 멈추고 힐링하기 최적.',
+            recommender: '나만의 프라이빗 아지트',
+            address: '광주 무등산 자락 혹은 골목 주택가 감성',
+            tags: ['#조용한분위기', '#인스타감성', '#힐링타임', '#차와다과'],
+            emoji: '🍵',
+            tip: '조금 어두운 톤의 원목 가구와 차분한 조명이 특징이니, 혼자 조용히 생각 정리나 책 읽기에 강추합니다.'
+        },
+        {
+            id: 15,
+            type: 'cafe',
+            name: '밀라네',
+            category: '구움과자 디저트',
+            description: '휘낭시에, 마들렌, 에그타르트',
+            comment: '매일 아침 직접 굽는 구움과자의 고소한 버터 향 가득한 공간. 버터향 리턴값이 상상 이상으로 달콤합니다.',
+            recommender: '기획자가 가장 좋아하는 휘낭시에',
+            address: '광주 신안동/용봉동 골목길',
+            tags: ['#구움과자', '#휘낭시에맛집', '#버터향가득', '#오후의홍차'],
+            emoji: '🍪',
+            tip: '소금 초코 휘낭시에는 겉은 바삭하고 속은 쫀득함의 극치를 보여주는 단짠 조합의 마스터피스.'
+        },
+        {
+            id: 16,
+            type: 'cafe',
+            name: '홈타운커피스탠다드',
+            category: '동네 커피 스탠드',
+            description: '아인슈페너, 바닐라빈라떼',
+            comment: '내 고향집 같은 따스하고 친근한 시그니처 크림커피. 동네 단골들의 평화가 묻어나는 골목 친화형 커피 스탠드입니다.',
+            recommender: '이웃집 같은 정겨운 단골 공간',
+            address: '광주 로컬 주택가 골목길 안쪽',
+            tags: ['#동네카페', '#아인슈페너', '#바닐라빈라떼', '#편안함'],
+            emoji: '🥛',
+            tip: '달달하고 부드러운 하우스 크림이 올라간 아인슈페너를 젓지 말고 쭉 마셔보세요. 기분이 즉각 업그레이드됩니다.'
+        }
+    ];
+
+    // Current State for Filtering
+    let activeCategory = 'all';
+
+    window.onload = function() {
+        renderDirectory(foodList);
+        updateCategoryButtonUI();
+    }
+
+    // Function to update the Count in Category Buttons
+    function updateCategoryButtonUI() {
+        const totalCount = foodList.length;
+        const foodCount = foodList.filter(item => item.type === 'food').length;
+        const cafeCount = foodList.filter(item => item.type === 'cafe').length;
+
+        document.getElementById('tab-all').innerHTML = `전체 보기 (${totalCount})`;
+        document.getElementById('tab-food').innerHTML = `🍚 맛집 ${foodCount}곳`;
+        document.getElementById('tab-cafe').innerHTML = `☕ 디저트/카페 ${cafeCount}곳`;
+    }
+
+    // Render the grid elements dynamically
+    function renderDirectory(items) {
+        const grid = document.getElementById('items-grid');
+        const noResults = document.getElementById('no-results');
+        grid.innerHTML = '';
+
+        if (items.length === 0) {
+            noResults.classList.remove('hidden');
+            grid.classList.add('hidden');
+            return;
+        } else {
+            noResults.classList.add('hidden');
+            grid.classList.remove('hidden');
+        }
+
+        items.forEach(item => {
+            const tagSpans = item.tags.map(tag => 
+                `<span class="inline-block bg-avocado-50 text-avocado-700 text-xs px-2.5 py-1 rounded-full font-medium">${tag}</span>`
+            ).join('');
+
+            const cardHtml = `
+                <div class="bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+                    <div class="p-6">
+                        <!-- Card Header Badge & Type -->
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs font-bold px-2.5 py-1 ${item.type === 'food' ? 'bg-amber-100 text-amber-800' : 'bg-sky-100 text-sky-800'} rounded-full">
+                                ${item.type === 'food' ? '🍚 맛집' : '☕ 디저트/카페'}
+                            </span>
+                            <span class="text-2xl">${item.emoji}</span>
+                        </div>
+
+                        <!-- Card Title -->
+                        <h3 class="text-xl font-extrabold text-gray-900 mb-1 group-hover:text-avocado-600 transition-colors">${item.name}</h3>
+                        <p class="text-xs text-gray-400 font-semibold mb-3">${item.category}</p>
+                        
+                        <!-- Mini Quote (Storyteller Comment) -->
+                        <div class="bg-gray-50 p-3.5 rounded-xl border-l-4 border-avocado-400 mb-4">
+                            <p class="text-sm text-gray-600 italic leading-relaxed font-medium">"${item.comment}"</p>
+                        </div>
+
+                        <!-- Info details -->
+                        <div class="space-y-1.5 text-xs text-gray-500 mb-4">
+                            <p class="flex items-center gap-1.5">
+                                <i class="fa-solid fa-cookie-bite text-avocado-400"></i>
+                                <span class="font-semibold text-gray-700">대표메뉴:</span> ${item.description}
+                            </p>
+                            <p class="flex items-center gap-1.5 truncate">
+                                <i class="fa-solid fa-map-pin text-avocado-400"></i>
+                                <span class="font-semibold text-gray-700">추정 위치:</span> ${item.address}
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card Footer with Tags and Button -->
+                    <div class="px-6 pb-6 pt-2 border-t border-gray-50 bg-gray-50/50">
+                        <div class="flex flex-wrap gap-1.5 mb-4">
+                            ${tagSpans}
+                        </div>
+                        <button onclick="openModal(${item.id})" class="w-full py-2.5 bg-white border border-gray-200 text-gray-700 hover:bg-avocado-500 hover:text-white hover:border-avocado-500 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm">
+                            <i class="fa-solid fa-eye"></i> 기획자 꿀팁 & 지도 보기
+                        </button>
+                    </div>
+                </div>
+            `;
+            grid.insertAdjacentHTML('beforeend', cardHtml);
+        });
+    }
+
+    function filterCategory(cat) {
+        activeCategory = cat;
+        
+        // Tab UI toggle
+        const buttons = document.querySelectorAll('.tab-btn');
+        buttons.forEach(btn => {
+            btn.classList.remove('bg-avocado-500', 'text-white', 'shadow-sm');
+            btn.classList.add('bg-white', 'text-gray-600', 'border', 'border-gray-200');
+        });
+
+        const activeBtn = document.getElementById(`tab-${cat}`);
+        activeBtn.classList.remove('bg-white', 'text-gray-600', 'border', 'border-gray-200');
+        activeBtn.classList.add('bg-avocado-500', 'text-white', 'shadow-sm');
+
+        applyFilterAndSearch();
+    }
+
+    function searchItems() {
+        applyFilterAndSearch();
+    }
+
+    function applyFilterAndSearch() {
+        const query = document.getElementById('searchInput').value.toLowerCase().trim();
+        
+        let filtered = foodList;
+        
+        // 1. Filter Category Tab
+        if (activeCategory !== 'all') {
+            filtered = filtered.filter(item => item.type === activeCategory);
+        }
+
+        // 2. Filter Search input query
+        if (query !== '') {
+            filtered = filtered.filter(item => {
+                const nameMatch = item.name.toLowerCase().includes(query);
+                const tagMatch = item.tags.some(t => t.toLowerCase().includes(query));
+                const commentMatch = item.comment.toLowerCase().includes(query);
+                const categoryMatch = item.category.toLowerCase().includes(query);
+                return nameMatch || tagMatch || commentMatch || categoryMatch;
+            });
+        }
+
+        renderDirectory(filtered);
+    }
+
+    function selectTpo(tpoType) {
+        const buttons = document.querySelectorAll('.tpo-btn');
+        buttons.forEach(btn => {
+            btn.classList.remove('border-avocado-400', 'bg-avocado-50/50', 'ring-2', 'ring-avocado-200');
+            btn.classList.add('border-gray-100');
+        });
+
+        // Highlight selected
+        event.currentTarget.classList.remove('border-gray-100');
+        event.currentTarget.classList.add('border-avocado-400', 'bg-avocado-50/50', 'ring-2', 'ring-avocado-200');
+
+        let res, cafe, tip, resTpo, cafeTpo;
+
+        switch(tpoType) {
+            case 'exhausted':
+                res = foodList.find(i => i.id === 5); // 학짬뽕
+                cafe = foodList.find(i => i.id === 10); // 비미
+                resTpo = '#스트레스_지수404';
+                cafeTpo = '#당분_오버플로우';
+                tip = "학짬뽕의 묵직하고 매운 불맛으로 스트레스 404 에러를 강제 종료한 뒤, 비미의 달콤한 타르트로 안전 마진을 구축하세요. 이 코스는 이미 무수한 싸피인들이 인정한 '해피 데스 밸리 패키지'입니다.";
+                break;
+            case 'sober':
+                res = foodList.find(i => i.id === 7); // 바다양푼이동태탕
+                cafe = foodList.find(i => i.id === 12); // 포지로스터리
+                resTpo = '#과음_디버깅';
+                cafeTpo = '#정신_각성모드';
+                tip = "양푼이동태탕의 미나리와 고소한 곤이가 들어간 맑고 얼큰한 국물로 숙취를 가비지 컬렉팅 하세요! 이후 포지 로스터리에서 진한 에스프레소 한 잔을 목줄기로 넘기면 코딩 효율이 다시 200% 상승합니다.";
+                break;
+            case 'weekend':
+                res = foodList.find(i => i.id === 3); // 산수쌈밥
+                cafe = foodList.find(i => i.id === 14); // 보램보램
+                resTpo = '#주말_싱싱한힐링';
+                cafeTpo = '#뇌정지_복구용_아지트';
+                tip = "주말엔 맛과 건강 모두 챙길 수 있는 산수쌈밥에서 신선한 채소 쌈과 영양 보쌈을 즐겨 보세요. 그리고 고요함의 대명사인 보램보램에서 차분한 차를 마시며 한 주 동안 과부하 걸렸던 뉴런을 쉬어주세요.";
+                break;
+            case 'party':
+                res = foodList.find(i => i.id === 6); // 소중대
+                cafe = foodList.find(i => i.id === 11); // 부부더상록
+                resTpo = '#프로젝트_합격_파티';
+                cafeTpo = '#동기수다_엔드포인트';
+                tip = "합격의 기쁨은 '소중대' 전골과 시원한 맥주 한잔으로 축배를 들어야죠! 1차 뒤풀이가 끝나면 상록공원 근처 '부부더상록'에서 시그니처 케이크를 나눠 먹으며 수다를 이어가보세요. 완벽한 스택 완성!";
+                break;
+        }
+
+        // Apply Recommended elements to UI
+        document.getElementById('res-name').innerText = res.name;
+        document.getElementById('res-desc').innerText = `"${res.comment}"`;
+        document.getElementById('res-tpo').innerText = resTpo;
+
+        document.getElementById('cafe-name').innerText = cafe.name;
+        document.getElementById('cafe-desc').innerText = `"${cafe.comment}"`;
+        document.getElementById('cafe-tpo').innerText = cafeTpo;
+
+        document.getElementById('matching-tip').innerText = tip;
+
+        // Show result Box with animation
+        const resultBox = document.getElementById('matcher-result');
+        resultBox.classList.remove('hidden');
+        resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function resetMatcher() {
+        const buttons = document.querySelectorAll('.tpo-btn');
+        buttons.forEach(btn => {
+            btn.classList.remove('border-avocado-400', 'bg-avocado-50/50', 'ring-2', 'ring-avocado-200');
+            btn.classList.add('border-gray-100');
+        });
+        document.getElementById('matcher-result').classList.add('hidden');
+    }
+
+    function openModal(itemId) {
+        const item = foodList.find(i => i.id === itemId);
+        if (!item) return;
+
+        const tagSpans = item.tags.map(tag => 
+            `<span class="inline-block bg-avocado-50 text-avocado-800 text-xs px-2.5 py-1 rounded-full font-bold">${tag}</span>`
+        ).join('');
+
+        const modalContent = document.getElementById('modal-content');
+        modalContent.innerHTML = `
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-3xl">${item.emoji}</span>
+                <div>
+                    <h3 class="text-2xl font-black text-gray-900">${item.name}</h3>
+                    <span class="text-xs font-bold text-avocado-600 bg-avocado-50 px-2 py-0.5 rounded-md">${item.category}</span>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Special Curated Comment -->
+                <div class="bg-gradient-to-r from-avocado-50 to-white p-4 rounded-2xl border border-avocado-100">
+                    <p class="text-xs font-extrabold text-avocado-800 uppercase tracking-wider mb-1 flex items-center gap-1">
+                        <i class="fa-solid fa-star"></i> 기획자 김수현의 사심 코멘트
+                    </p>
+                    <p class="text-sm text-gray-700 font-semibold leading-relaxed">
+                        "${item.comment}"
+                    </p>
+                </div>
+
+                <!-- Deep Details -->
+                <div class="space-y-2.5 text-sm">
+                    <div class="flex items-start gap-2.5">
+                        <span class="text-avocado-500 mt-0.5"><i class="fa-solid fa-kitchen-set"></i></span>
+                        <p class="text-gray-600"><strong class="text-gray-900">추천 주메뉴:</strong> ${item.description}</p>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                        <span class="text-avocado-500 mt-0.5"><i class="fa-solid fa-map"></i></span>
+                        <p class="text-gray-600"><strong class="text-gray-900">찾아가는 주소:</strong> ${item.address}</p>
+                    </div>
+                    <div class="flex items-start gap-2.5 bg-yellow-50 p-3 rounded-xl border border-yellow-100">
+                        <span class="text-amber-500 mt-0.5"><i class="fa-solid fa-lightbulb"></i></span>
+                        <p class="text-xs text-amber-900 leading-relaxed">
+                            <strong class="font-bold">현지인 먹방 꿀팁:</strong> ${item.tip}
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Tags list -->
+                <div class="pt-2">
+                    <p class="text-xs text-gray-400 font-bold mb-2">분류 태그</p>
+                    <div class="flex flex-wrap gap-1.5">
+                        ${tagSpans}
+                    </div>
+                </div>
+
+                <!-- Action Button in modal -->
+                <div class="pt-4 flex gap-2">
+                    <a href="https://map.kakao.com/?q=${encodeURIComponent(item.name)}" target="_blank" class="flex-1 py-3 bg-avocado-500 hover:bg-avocado-600 text-white text-center rounded-xl text-xs font-bold shadow-md transition-colors flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-location-arrow"></i> 카카오맵 길찾기
+                    </a>
+                    <button onclick="copyDetailLink('${item.name}')" class="px-4 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl text-xs font-bold transition-colors">
+                        <i class="fa-regular fa-copy"></i> 복사
+                    </button>
+                </div>
+            </div>
+        `;
+
+        document.getElementById('detail-modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+        document.getElementById('detail-modal').classList.add('hidden');
+    }
+
+    // Modal close when clicking outside of modal-content
+    window.onclick = function(event) {
+        const modal = document.getElementById('detail-modal');
+        if (event.target === modal) {
+            closeModal();
+        }
+    }
+
+    function copyToClipboard() {
+        const dummy = document.createElement('input');
+        const text = window.location.href;
+        document.body.appendChild(dummy);
+        dummy.value = text;
+        dummy.select();
+        document.execCommand('copy');
+        document.body.removeChild(dummy);
+
+        const toast = document.getElementById('copy-toast');
+        toast.innerText = "🎉 전체 가이드 링크가 복사되었습니다!";
+        toast.classList.remove('opacity-0');
+        toast.classList.add('opacity-100');
+        setTimeout(() => {
+            toast.classList.remove('opacity-100');
+            toast.classList.add('opacity-0');
+        }, 3000);
+    }
+
+    function copyDetailLink(name) {
+        const dummy = document.createElement('input');
+        dummy.value = `[수현 추천] 광주 맛집 - "${name}" 추천 가이드를 확인해보세요!`;
+        document.body.appendChild(dummy);
+        dummy.select();
+        document.execCommand('copy');
+        document.body.removeChild(dummy);
+        
+        alert(`"${name}" 안내 문구가 복사되었습니다. 동기 단톡방에 붙여넣어 보세요!`);
+    }
+</script>
+</body>
+</html>
