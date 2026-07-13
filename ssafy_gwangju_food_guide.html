@@ -585,7 +585,7 @@
         // Static Master Database List of SSAFY Gwangju Campus Local Best Places
         const foodList = [
             { id: 1, region: 'gwangju', type: 'food', emoji: '🍲', name: '원조쌍촌할매청진동해장국', category: '한식 / 해장국', description: '머리국밥, 순대국밥, 모듬 수육', address: '광주 서구 쌍촌동 908-11', recommender: '김수현 기획자', comment: '쌍촌동 찐 노포 국밥의 끝판왕입니다. 수육 한 판 시키면 국물이 계속 리필되는 가성비 극상 식당! 프로젝트 끝나고 술 한 잔 곁들여 뇌 세포 리부팅하기에 이보다 든든한 곳이 없습니다.', tags: ['#수육맛집', '#노포감성', '#해장국밥', '#24시간'] },
-            { id: 2, region: 'gwangju', type: 'food', emoji: '🐟', name: '남원추어탕 부뚜막', category: '한식 / 추어탕', description: '돌솥밥 추어탕, 추어튀김', address: '광주 서구 화정동 831-2', recommender: '김수현 기획자', comment: '돌솥밥에 갓 볶아낸 고소한 밥과 녹진하고 구수한 전통 추어탕이 나옵니다. 원기 보충이 필요한 코딩 마감 주간에 무조건 들려야 하는 필수 디버깅 코스!', tags: ['#돌솥밥추어탕', '#몸보신', '#건강식', '#화정동핫플'] },
+            { id: 2, region: 'gwangju', type: 'food', emoji: '🐟', name: '남원추어탕 부뚜막', category: '한식 / 추어탕', description: '돌솥밥 추어탕, 추어튀김', address: '광주 서구 화정동 831-2', recommender: '김수현 기획자', comment: '돌솥밥에 갓 볶아낸 고소한 밥 and 녹진하고 구수한 전통 추어탕이 나옵니다. 원기 보충이 필요한 코딩 마감 주간에 무조건 들려야 하는 필수 디버깅 코스!', tags: ['#돌솥밥추어탕', '#몸보신', '#건강식', '#화정동핫플'] },
             { id: 3, region: 'gwangju', type: 'food', emoji: '🥬', name: '산수쌈밥', category: '한식 / 쌈밥', description: '우렁쌈밥 정식, 보쌈수육', address: '광주 동구 산수동 555-5', recommender: '김수현 기획자', comment: '짜지 않고 담백하게 비벼낸 우렁이 강된장과 야들야들한 보쌈 수육의 환상 조합. 각종 유기농 쌈채소가 무한 리필되어 지친 눈과 간에 싱싱한 비타민을 가득 주입해 줍니다.', tags: ['#우렁쌈밥', '#보쌈맛집', '#쌈채소', '#가성비갑'] },
             { id: 4, region: 'gwangju', type: 'food', emoji: '🍜', name: '옥천면옥', category: '한식 / 냉면', description: '물비빔냉면, 칼칼 사골곰탕, 갈비탕', address: '광주 북구 신안동 257-2', recommender: '김수현 기획자', comment: '면발의 찰기가 저세상 텐션입니다. 새콤매콤한 특제 양념의 물비빔냉면은 여름철 더위에 쩔어 과열된 노트북과 우리의 머리를 깔끔하게 쿨링해 줍니다. 갈비탕 국물도 깊이가 남다릅니다.', tags: ['#비빔물냉면', '#갈비탕추천', '#전통냉면', '#신안동노포'] },
             { id: 5, region: 'gwangju', type: 'food', emoji: '🌶️', name: '학짬뽕', category: '중식 / 짬뽕', description: '중화비빔밥, 학짬뽕, 야채 탕수육', address: '광주 남구 양림동 335-5', recommender: '김수현 기획자', comment: '걸쭉하게 사골을 우려내어 불향을 꽉 채운 매콤한 학짬뽕입니다. 면을 다 건져 먹고 밥 한 공기 꾹 꾹 말아서 국물까지 디버깅하는 것이 학계 정설! 양림동 시그니처 짬뽕입니다.', tags: ['#사골짬뽕', '#중화비빔밥', '#양림동맛집', '#인생짬뽕'] },
@@ -594,7 +594,7 @@
             { id: 8, region: 'gwangju', type: 'food', emoji: '🥣', name: '나주곰탕 송정동 1001-7', category: '한식 / 국밥', description: '맑은 나주곰탕, 명품 수육곰탕', address: '광주 광산구 송정동 1001-7', recommender: '김수현 기획자', comment: '기교 없이 맑고 투명하게 고아낸 깊은 사골 육수가 영혼까지 포근하게 채워줍니다. 야들하게 썰어낸 곰탕 속 고기를 특제 초장에 콕 찍어 한 입 먹으면, 하루의 고단함이 해결됩니다.', tags: ['#맑은곰탕', '#나주곰탕', '#송정역맛집', '#원조해장'] },
             { id: 9, region: 'gwangju', type: 'food', emoji: '🥩', name: '마리오셰프', category: '양식 / 이탈리안', description: '수제 뇨끼, 티본 스테이크, 리조또', address: '광주 남구 양림동 201-16', recommender: '김수현 기획자', comment: '양림동 감성 거리에 어울리는 아늑한 이탈리안 레스토랑. 감자로 입에서 녹아내리게 빚어낸 크림 수제 뇨끼와 스테이크는 특별한 날 동기들과 회포를 풀며 분위기 낼 수 있는 최고의 성지입니다.', tags: ['#수제뇨끼', '#양림동스테이크', '#감성양식', '#기념일강추'] },
             { id: 10, region: 'gwangju', type: 'cafe', emoji: '🍰', name: '비미', category: '디저트 / 타르트', description: '바닐라 타르트, 수제 구움과자, 밀크티', address: '광주 동구 동명동 154-123', recommender: '김수현 기획자', comment: '동명동 한구석에 위치한 아늑한 감성의 수제 타르트 전문 카페입니다. 겹겹이 쌓아 올려 고소하게 구워낸 타르트쉘에 달콤한 바닐라 크림의 페어링은 브레이크 타임 충전에 제격입니다.', tags: ['#수제타르트', '#동명동디저트', '#밀크티맛집', '#조용한카페'] },
-            { id: 11, region: 'gwangju', type: 'cafe', emoji: '🍓', name: '부부더상록', category: '디저트 / 생과일 케이크', description: '생딸기 크림 케이크, 바스크 치즈케이크', address: '광주 서구 농성동 631-5', recommender: '김수현 기획자', comment: '생크림의 고소함과 신선한 생과일이 조각마다 넘칠 듯 꽉 채워진 프리미엄 케이크 명가. 코딩 머리를 팽팽 굴리기 위해 뇌에 긴급 고농도 포도당 수혈을 하고 싶을 때 망설임 없이 포장해 가세요.', tags: ['#딸기케이크', '#크림대박', '#농성역카페', '#디저트성지'] },
+            { id: 11, region: 'gwangju', type: 'cafe', emoji: '🍓', name: '부부더상록', category: '디저트 / 생과일 케이크', description: '생딸기 크림 케이크, 바스크 치즈케이크', address: '광주 서구 농성동 631-5', recommender: '김수현 기획자', comment: '생크림의 고소함 and 신선한 생과일이 조각마다 넘칠 듯 꽉 채워진 프리미엄 케이크 명가. 코딩 머리를 팽팽 굴리기 위해 뇌에 긴급 고농도 포도당 수혈을 하고 싶을 때 망설임 없이 포장해 가세요.', tags: ['#딸기케이크', '#크림대박', '#농성역카페', '#디저트성지'] },
             { id: 12, region: 'gwangju', type: 'cafe', emoji: '☕', name: '포지로스터리', category: '커피 / 브루잉 전문', description: '에티오피아 아이스 브루잉, 로스팅 스페셜티', address: '광주 서구 쌍촌동 970-12', recommender: '김수현 기획자', comment: '로스터리에서 직접 볶아 신선한 원두로 정성스럽게 내린 명품 필터 커피를 제공합니다. 에티오피아 특유의 화사하고 산뜻한 산미는 텁텁해진 머릿속 메모리를 깨끗하게 가비지 컬렉팅해 줍니다.', tags: ['#로스터리카페', '#필터커피', '#핸드드립', '#스페셜티'] },
             { id: 13, region: 'gwangju', type: 'cafe', emoji: '🥛', name: '라이드올스테디', category: '커피 / 시그니처 라떼', description: '올스테디 화이트 라떼, 크림 아인슈페너', address: '광주 서구 화정동 14-25', recommender: '김수현 기획자', comment: '이곳의 라떼는 우유 가공법이 특별하여 묵직하고 고소한 치즈 같은 단맛이 밀려옵니다. 얼음을 넣지 않고 차갑게 마시는 시그니처 크림 아인슈페너는 고단한 심신에 완벽한 위로를 전합니다.', tags: ['#인생라떼', '#아인슈페너', '#화정동골목', '#고소한라떼'] },
             { id: 14, region: 'gwangju', type: 'cafe', emoji: '🍵', name: '보램보램', category: '디저트 / 다도 카페', description: '말차 다도 세트, 아포가토, 감성 드립', address: '광주 남구 봉선동 451-9', recommender: '김수현 기획자', comment: '차분하고 정적이고 아름다운 고전 가구들이 조화를 이루는 아날로그 감성 다방. 향긋하게 솔잎 향처럼 차오르는 깊은 말차 한 잔을 정성껏 우려 마시며 에러 코드로 지친 안구를 정화해 보세요.', tags: ['#다도체험', '#말차맛집', '#봉선동감성', '#조용한다방'] },
@@ -656,9 +656,9 @@
                 { label: '연어롤 & 초밥 🍣', search: '광주 연어초밥 맛집' },
                 { label: '차슈 돈코츠라멘 🍜', search: '광주 동명동 돈코츠라멘 맛집' },
                 { label: '소유라멘 🍜', search: '광주 남구 소유라멘 소바' },
-                { label: '사케동 (연어덮밥) 🐟', search: '광주 동구 연어 사케동' },
-                { label: '스테끼동 (큐브덮밥) 🥩', search: '광주 일본식 큐브 스테이크 덮밥' },
-                { label: '규동 (소고기덮밥) 🍚', search: '광주 서구 일본식 덮밥 규동' },
+                { label: '사케동 🐟', search: '광주 동구 연어 사케동' },
+                { label: '스테끼동 🥩', search: '광주 일본식 큐브 스테이크 덮밥' },
+                { label: '규동 🍚', search: '광주 서구 일본식 덮밥 규동' },
                 { label: '바삭 텐동 🍤', search: '광주 동구 텐동 튀김덮밥 맛집' },
                 { label: '에비카레 🍛', search: '광주 일본식 카레 카라아게' },
                 { label: '야키소바 🍝', search: '광주 양림동 야키소바 타코야키' }
@@ -673,8 +673,8 @@
                 { label: '오렌지 크림라떼 🍊', search: '홈타운커피스탠다드 라떼 임동' },
                 { label: '아포가토 🍨', search: '광주 크림 아포가토 카페' },
                 { label: '크루아상 🥐', search: '광주 동명동 크루아상 베이커리' },
-                { label: '에스프레소 콘판나 ☕', search: '광주 에스프레소 바 전문점' },
-                { label: '바스크 치즈케이크 🧀', search: '광주 치즈 케이크 디저트 카페' },
+                { label: '에스프레소 ☕', search: '광주 에스프레소 바 전문점' },
+                { label: '치즈케이크 🧀', search: '광주 치즈 케이크 디저트 카페' },
                 { label: '소금빵 🍞', search: '광주 서구 갓구운 소금빵 베이커리' }
             ]
         };
@@ -693,7 +693,7 @@
         let currentViewingItemId = null;
         let currentViewingIsUserAdded = false;
 
-        // Sound Engine using Web Audio API (completely isolated, no external files required)
+        // Sound Engine using Web Audio API
         let audioCtx = null;
         function playTickSound() {
             try {
@@ -724,8 +724,6 @@
                 if (audioCtx.state === 'suspended') audioCtx.resume();
 
                 const now = audioCtx.currentTime;
-                
-                // Arpeggio chords
                 const freqs = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
                 freqs.forEach((f, index) => {
                     const osc = audioCtx.createOscillator();
@@ -744,7 +742,38 @@
             }
         }
 
-        // Fallback-ready Firebase Ignition Module
+        // Central Local Storage Save Helper
+        function saveToLocalFallback() {
+            try {
+                localStorage.setItem('ssafy_local_recs', JSON.stringify(customCollection));
+                localStorage.setItem('ssafy_local_interactions', JSON.stringify(interactionsData));
+                localStorage.setItem('ssafy_local_roulette', JSON.stringify(rouletteItems));
+            } catch (err) {
+                console.error("Local caching saving crash", err);
+            }
+        }
+
+        // Offline storage loaders
+        function loadLocalFallback() {
+            try {
+                const storedRecs = localStorage.getItem('ssafy_local_recs');
+                if (storedRecs) customCollection = JSON.parse(storedRecs);
+                
+                const storedLikes = localStorage.getItem('ssafy_local_interactions');
+                if (storedLikes) interactionsData = JSON.parse(storedLikes);
+                
+                const storedRoulette = localStorage.getItem('ssafy_local_roulette');
+                if (storedRoulette) {
+                    rouletteItems = JSON.parse(storedRoulette);
+                }
+            } catch (err) {
+                console.error("Local caching retrieval crash", err);
+            }
+            mergeAndRender();
+            drawRoulette(); // Ensure roulette drawing runs immediately
+        }
+
+        // Firebase Ignition Module
         try {
             app = initializeApp(firebaseConfig);
             db = getFirestore(app);
@@ -758,6 +787,7 @@
                     snapshot.forEach(docSnap => {
                         customCollection.push({ id: docSnap.id, ...docSnap.data() });
                     });
+                    saveToLocalFallback();
                     mergeAndRender();
                 }, (error) => {
                     console.warn("Firestore subscription failed, running locally", error);
@@ -768,6 +798,9 @@
                 onSnapshot(refRoulette, (docSnap) => {
                     if (docSnap.exists() && docSnap.data().items) {
                         rouletteItems = docSnap.data().items;
+                        saveToLocalFallback();
+                        drawRoulette();
+                    } else {
                         drawRoulette();
                     }
                 });
@@ -779,8 +812,8 @@
                     snapshot.forEach(docSnap => {
                         interactionsData[docSnap.id] = docSnap.data();
                     });
+                    saveToLocalFallback();
                     mergeAndRender();
-                    // Live-update detail modal if currently looking at one
                     if (currentViewingItemId) {
                         const targetItem = findItemInLists(currentViewingItemId, currentViewingIsUserAdded);
                         if (targetItem) renderDetailContent(targetItem);
@@ -795,40 +828,12 @@
             loadLocalFallback();
         }
 
-        // Offline storage loaders
-        function loadLocalFallback() {
-            try {
-                const storedRecs = localStorage.getItem('ssafy_local_recs');
-                if (storedRecs) customCollection = JSON.parse(storedRecs);
-                const storedLikes = localStorage.getItem('ssafy_local_interactions');
-                if (storedLikes) interactionsData = JSON.parse(storedLikes);
-                
-                const storedRoulette = localStorage.getItem('ssafy_local_roulette');
-                if (storedRoulette) {
-                    rouletteItems = JSON.parse(storedRoulette);
-                }
-            } catch (err) {
-                console.error("Local caching retrieval crash", err);
-            }
-            mergeAndRender();
-        }
-
-        function saveToLocalFallback() {
-            try {
-                localStorage.setItem('ssafy_local_recs', JSON.stringify(customCollection));
-                localStorage.setItem('ssafy_local_interactions', JSON.stringify(interactionsData));
-                localStorage.setItem('ssafy_local_roulette', JSON.stringify(rouletteItems));
-            } catch (err) {
-                console.error("Local cache save crash", err);
-            }
-        }
-
         // Combines base foods and user contributions, then pushes to viewport
         function mergeAndRender() {
             const grid = document.getElementById('directoryGrid');
+            if (!grid) return;
             grid.innerHTML = '';
 
-            // Filter lists based on states
             const filteredOriginal = foodList.filter(item => {
                 const matchRegion = item.region === currentCampus;
                 const matchCategory = currentCategoryFilter === 'all' || item.type === currentCategoryFilter;
@@ -853,7 +858,6 @@
                 return matchRegion && matchCategory && matchSearch;
             });
 
-            // If empty, trigger empty state visual
             if (filteredOriginal.length === 0 && filteredCustom.length === 0) {
                 document.getElementById('emptyState').classList.remove('hidden');
                 return;
@@ -861,7 +865,7 @@
                 document.getElementById('emptyState').classList.add('hidden');
             }
 
-            // Render Original Core list first
+            // Render Original
             filteredOriginal.forEach(item => {
                 const interaction = interactionsData[item.id] || { likes: 0, comments: [] };
                 const isSuhyun = interaction.isSoohyunPick || false;
@@ -900,7 +904,7 @@
                 grid.appendChild(card);
             });
 
-            // Render Custom Contributions
+            // Render Custom
             filteredCustom.forEach(item => {
                 const interaction = interactionsData[item.id] || { likes: 0, comments: [] };
                 const isSuhyun = interaction.isSoohyunPick || false;
@@ -911,7 +915,6 @@
                 card.className = "bg-white rounded-2xl border border-avocado-100 hover:border-avocado-300 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col cursor-pointer relative";
                 card.onclick = () => openDetailModal(item, true);
                 card.innerHTML = `
-                    <!-- Quick Delete trigger in list -->
                     <button onclick="triggerItemDelete('${item.id}', event)" class="absolute top-4 right-4 text-gray-300 hover:text-red-500 transition-all text-sm p-1.5 z-10" title="제보 삭제">
                         <i class="fa-solid fa-trash-can"></i>
                     </button>
@@ -944,7 +947,6 @@
             });
         }
 
-        // UI filtering actions
         window.setCampus = function(campus) {
             currentCampus = campus;
             document.querySelectorAll('#campusTabs button').forEach(btn => {
@@ -974,8 +976,8 @@
             document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
         }
 
-        // State engine for the Dual level Roulette
-        let currentRouletteStage = 1; // 1: Category Selection, 2: Menu selection
+        // 2-Stage Roulette Engine
+        let currentRouletteStage = 1; 
         let selectedCategoryKey = '';
         let rouletteAngles = 0;
         let isSpinning = false;
@@ -983,7 +985,7 @@
         const colorsCategory = ['#6b9c54', '#facc15', '#cfe5c4', '#527c3f', '#fef9c3'];
         const colorsSub = ['#6b9c54', '#facc15', '#cfe5c4', '#527c3f', '#fef9c3', '#8cb877', '#fefde8', '#eab308'];
 
-        function drawRoulette() {
+        window.drawRoulette = function() {
             const canvas = document.getElementById('rouletteCanvas');
             if (!canvas) return;
             const ctx = canvas.getContext('2d');
@@ -1024,16 +1026,13 @@
                 ctx.strokeStyle = '#ffffff';
                 ctx.stroke();
 
-                // Draw labels inside wheel (1.7x enlarged font)
                 ctx.save();
                 ctx.fillStyle = '#2f4b23';
-                // Adjust font size dynamically depending on long strings
                 const fontSize = totalSegments > 10 ? '16px' : '20px';
                 ctx.font = `bold ${fontSize} Pretendard, sans-serif`;
                 ctx.textAlign = 'right';
                 ctx.textBaseline = 'middle';
                 
-                // Align middle of arc
                 ctx.rotate(angle + arcSize / 2);
                 const textDist = radius - 40;
                 ctx.fillText(items[i].label || items[i], textDist, 0);
@@ -1062,9 +1061,8 @@
             const totalSegments = items.length;
             const arcSize = (2 * Math.PI) / totalSegments;
 
-            // Generate physics deceleration properties
-            let velocity = Math.random() * 0.15 + 0.25; // Random force
-            const friction = 0.982; // Damping
+            let velocity = Math.random() * 0.15 + 0.25; 
+            const friction = 0.982; 
             let accumulatedTicks = 0;
 
             function animateSpin() {
@@ -1072,18 +1070,15 @@
                     isSpinning = false;
                     playWinSound();
                     
-                    // Precise math integration for finding the pointing item at 12 o'clock (-90 degrees)
                     let normalizedAngle = rouletteAngles % (2 * Math.PI);
                     if (normalizedAngle < 0) normalizedAngle += 2 * Math.PI;
 
-                    // Pointer is at -PI/2 relative to rotation origin
                     let pointerAngle = (1.5 * Math.PI - normalizedAngle) % (2 * Math.PI);
                     if (pointerAngle < 0) pointerAngle += 2 * Math.PI;
 
                     const winningIndex = Math.floor(pointerAngle / arcSize) % totalSegments;
                     const finalSelection = items[winningIndex];
 
-                    // Fire stage progression
                     if (currentRouletteStage === 1) {
                         currentRouletteStage = 2;
                         selectedCategoryKey = categoryMapKeys[winningIndex];
@@ -1093,10 +1088,8 @@
                         document.getElementById('roulette-prompt').innerText = `${finalSelection} 세부 음식 추첨`;
                         document.getElementById('roulette-desc').innerText = "과연 이 카테고리 중 오늘의 운명의 한 끼 식사는 무엇이 될까요?";
                         
-                        // Redraw and re-enable trigger for second round
                         drawRoulette();
                     } else {
-                        // Stage 2 completion: Render Naver map quick launch
                         const resultText = finalSelection.label || finalSelection;
                         const resultSearch = finalSelection.search || finalSelection;
 
@@ -1114,7 +1107,6 @@
                 rouletteAngles += velocity;
                 velocity *= friction;
 
-                // Sound synchronization on physical boundary transitions
                 const currentSegmentProgress = Math.floor(rouletteAngles / arcSize);
                 if (currentSegmentProgress > accumulatedTicks) {
                     playTickSound();
@@ -1142,11 +1134,6 @@
         };
 
         window.openRouletteConfig = function() {
-            // 관리자 암호 인증 절차를 제거하여 누구나 즉시 편집할 수 있게 직접 열어줍니다.
-            proceedOpenRouletteConfig();
-        };
-
-        function proceedOpenRouletteConfig() {
             document.getElementById('rouletteConfigModal').classList.remove('hidden');
             document.getElementById('rouletteConfigModal').querySelector('.transform').classList.remove('scale-95');
             document.getElementById('rouletteConfigModal').querySelector('.transform').classList.add('scale-100');
@@ -1205,10 +1192,10 @@
 
             rouletteItems[category].push({ label: label, search: search });
 
-            // Clear inputs
             document.getElementById('newRouletteLabel').value = '';
             document.getElementById('newRouletteSearch').value = '';
 
+            saveToLocalFallback(); // Back up instantly
             await saveRouletteConfiguration();
             renderConfigRouletteItems();
             drawRoulette();
@@ -1224,6 +1211,7 @@
             }
 
             rouletteItems[category].splice(index, 1);
+            saveToLocalFallback(); // Back up instantly
             await saveRouletteConfiguration();
             renderConfigRouletteItems();
             drawRoulette();
@@ -1237,14 +1225,10 @@
                     await setDoc(docRef, { items: rouletteItems }, { merge: true });
                 } catch (e) {
                     console.error("Firebase roulette config save failed", e);
-                    saveToLocalFallback();
                 }
-            } else {
-                saveToLocalFallback();
             }
         }
 
-        // Helper to locate elements from both data sets safely
         function findItemInLists(id, isUserAdded) {
             if (isUserAdded) {
                 return customCollection.find(item => item.id === id);
@@ -1253,7 +1237,6 @@
             }
         }
 
-        // Detail Modal Controller
         window.openDetailModal = function(item, isUserAdded) {
             currentViewingItemId = item.id;
             currentViewingIsUserAdded = isUserAdded;
@@ -1282,7 +1265,6 @@
             }
         }
 
-        // Renders visual data points inside detail modal
         function renderDetailContent(item) {
             const interaction = interactionsData[item.id] || { likes: 0, comments: [], isSoohyunPick: false };
             
@@ -1292,7 +1274,6 @@
             document.getElementById('detail-desc').innerText = item.description;
             document.getElementById('detail-comment').innerText = item.comment + (item.tip ? `\n\n💡 [꿀팁] ${item.tip}` : '');
             
-            // Recommender indicator styling
             const recBadge = document.getElementById('detail-recommender-badge');
             if (currentViewingIsUserAdded) {
                 recBadge.innerText = `🤝 제보자: ${item.recommender}`;
@@ -1302,7 +1283,6 @@
                 recBadge.className = "px-2.5 py-1 bg-avocado-100 text-avocado-800 text-xs font-bold rounded-lg shadow-xs";
             }
 
-            // Suhyun Pick state indicator
             const pickBadge = document.getElementById('detail-badge');
             if (interaction.isSoohyunPick) {
                 pickBadge.classList.remove('hidden');
@@ -1312,12 +1292,10 @@
                 pickBadge.classList.add('hidden');
             }
 
-            // Like Counter mapping
             document.getElementById('detail-like-count').innerText = interaction.likes || 0;
             const likeBtn = document.getElementById('detail-like-btn');
             likeBtn.onclick = () => submitLike(item.id);
 
-            // Tags Setup
             const tagsBox = document.getElementById('detail-tags-container');
             tagsBox.innerHTML = '';
             const rawTags = Array.isArray(item.tags) ? item.tags : (item.tags ? item.tags.split(',') : []);
@@ -1330,8 +1308,7 @@
                 }
             });
 
-            // Map and Links Configuration
-            const mapSearchText = item.name; // Search using original restaurant name
+            const mapSearchText = item.name; 
             const searchUrl = `https://map.naver.com/p/search/${encodeURIComponent(mapSearchText)}`;
             const addressUrl = `https://map.naver.com/p/search/${encodeURIComponent(item.address)}`;
 
@@ -1339,7 +1316,6 @@
             document.getElementById('detail-address').innerText = item.address;
             document.getElementById('detail-address-link').setAttribute('href', addressUrl);
 
-            // Bottom Comments Render
             const commentsContainer = document.getElementById('commentsList');
             commentsContainer.innerHTML = '';
             const listComments = interaction.comments || [];
@@ -1367,8 +1343,7 @@
             }
         }
 
-        // 1-Vote restrictor utilizing local storage map
-        async function submitLike(itemId) {
+        window.submitLike = async function(itemId) {
             const likedList = JSON.parse(localStorage.getItem('ssafy_liked_items') || '{}');
             if (likedList[itemId]) {
                 showAlert("추천 이미 완료 💖", "이 밥집은 이미 추천하셨습니다! 맛있는 데이터는 한 번씩만 투표해 주셔도 충분합니다.");
@@ -1379,16 +1354,15 @@
             likedList[itemId] = true;
             localStorage.setItem('ssafy_liked_items', JSON.stringify(likedList));
 
+            updateLikeFallback(itemId);
+
             if (db) {
                 try {
                     const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'interactions', String(itemId));
                     await setDoc(docRef, { likes: increment(1) }, { merge: true });
                 } catch (e) {
-                    console.error("Firebase likes saving failed, updating offline", e);
-                    updateLikeFallback(itemId);
+                    console.error("Firebase likes saving failed", e);
                 }
-            } else {
-                updateLikeFallback(itemId);
             }
         }
 
@@ -1405,7 +1379,6 @@
             }
         }
 
-        // Form post handler for peer reviews (comments)
         window.submitComment = async function(event) {
             event.preventDefault();
             const author = document.getElementById('commentAuthor').value.trim();
@@ -1417,7 +1390,7 @@
             const nowStr = new Date().toLocaleDateString('ko-KR', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
             const newCommentObj = {
                 author: author,
-                password: password, // user designated password for safe local-handling
+                password: password, 
                 comment: commentText,
                 date: nowStr
             };
@@ -1426,19 +1399,26 @@
             const currentInt = interactionsData[itemId] || { likes: 0, comments: [] };
             const nextComments = [...(currentInt.comments || []), newCommentObj];
 
+            // Local-first saving logic for instant offline resilience
+            if (!interactionsData[itemId]) {
+                interactionsData[itemId] = { likes: 0, comments: [] };
+            }
+            interactionsData[itemId].comments = nextComments;
+            saveToLocalFallback();
+            mergeAndRender();
+            
+            const target = findItemInLists(itemId, currentViewingIsUserAdded);
+            if (target) renderDetailContent(target);
+
             if (db) {
                 try {
                     const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'interactions', String(itemId));
                     await setDoc(docRef, { comments: nextComments }, { merge: true });
                 } catch (e) {
-                    console.error("Firebase comments post failed, saving locally", e);
-                    saveCommentFallback(itemId, nextComments);
+                    console.error("Firebase comments post failed", e);
                 }
-            } else {
-                saveCommentFallback(itemId, nextComments);
             }
 
-            // Reset inputs
             document.getElementById('commentAuthor').value = '';
             document.getElementById('commentPassword').value = '';
             document.getElementById('commentText').value = '';
@@ -1446,18 +1426,6 @@
             playWinSound();
         }
 
-        function saveCommentFallback(itemId, nextComments) {
-            if (!interactionsData[itemId]) {
-                interactionsData[itemId] = { likes: 0, comments: [] };
-            }
-            interactionsData[itemId].comments = nextComments;
-            saveToLocalFallback();
-            mergeAndRender();
-            const target = findItemInLists(itemId, currentViewingIsUserAdded);
-            if (target) renderDetailContent(target);
-        }
-
-        // Deletes comments securely with personal/admin passwords
         let pendingDeleteCommentIndex = null;
         window.triggerCommentDelete = function(index) {
             pendingDeleteCommentIndex = index;
@@ -1468,7 +1436,6 @@
             document.getElementById('delete-confirm-modal').classList.remove('hidden');
         }
 
-        // Form submission logic to add custom restaurants
         window.openAddModal = function() {
             document.getElementById('addForm').reset();
             document.getElementById('addModal').classList.remove('hidden');
@@ -1511,9 +1478,14 @@
                 address: address,
                 recommender: recommender,
                 comment: comment,
-                password: password, // customized code for self-deletion security
+                password: password, 
                 tags: tagsRaw
             };
+
+            // Local-first write guarantee
+            customCollection.push(newDoc);
+            saveToLocalFallback();
+            mergeAndRender();
 
             if (db) {
                 try {
@@ -1521,28 +1493,20 @@
                     await setDoc(ref, newDoc);
                     showAlert("제보 완료 🤝", `'${name}' 맛집이 클라우드 보드에 정상 공유되었습니다!`);
                 } catch (e) {
-                    console.error("Firestore custom save failed, saving locally", e);
-                    saveCustomItemFallback(newDoc);
+                    console.error("Firestore custom save failed, using local fallback", e);
+                    showAlert("임시 제보 완료 💾", `'${name}' 매장이 현 세션 임시 저장고에 배포되었습니다!`);
                 }
             } else {
-                saveCustomItemFallback(newDoc);
+                showAlert("임시 제보 완료 💾", `'${name}' 매장이 현 세션 임시 저장고에 배포되었습니다!`);
             }
 
             closeAddModal();
             playWinSound();
         }
 
-        function saveCustomItemFallback(newDoc) {
-            customCollection.push(newDoc);
-            saveToLocalFallback();
-            mergeAndRender();
-            showAlert("임시 제보 완료 💾", `'${newDoc.name}' 매장이 현 세션 임시 저장고에 배포되었습니다!`);
-        }
-
-        // Custom recommendation card deletion sequence
         let pendingDeleteItemObj = null;
         window.triggerItemDelete = function(itemId, event) {
-            if (event) event.stopPropagation(); // Avoid triggering details modal opening
+            if (event) event.stopPropagation(); 
             const targetItem = customCollection.find(i => i.id === itemId);
             if (!targetItem) return;
 
@@ -1587,6 +1551,13 @@
 
                 const nextComments = comments.filter((_, i) => i !== pendingDeleteCommentIndex);
 
+                // Safe state local update
+                interactionsData[itemId].comments = nextComments;
+                saveToLocalFallback();
+                mergeAndRender();
+                const target = findItemInLists(itemId, currentViewingIsUserAdded);
+                if (target) renderDetailContent(target);
+
                 if (db) {
                     try {
                         const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'interactions', String(itemId));
@@ -1594,10 +1565,7 @@
                         showAlert("후기 소거 완료 ✨", "작성하신 동기 후기가 안전하게 지워졌습니다.");
                     } catch (e) {
                         console.error("Firebase comments delete failed", e);
-                        saveCommentFallback(itemId, nextComments);
                     }
-                } else {
-                    saveCommentFallback(itemId, nextComments);
                 }
 
                 closeDeleteModal();
@@ -1611,6 +1579,11 @@
                     return;
                 }
 
+                // Safe state local update
+                customCollection = customCollection.filter(i => i.id !== targetItem.id);
+                saveToLocalFallback();
+                mergeAndRender();
+
                 if (db) {
                     try {
                         const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'recommendations', targetItem.id);
@@ -1618,22 +1591,12 @@
                         showAlert("맛집 데이터 제거 완료 👋", `'${targetItem.name}' 매장이 클라우드 피드에서 완벽하게 제거되었습니다.`);
                     } catch (e) {
                         console.error("Firestore document delete failed", e);
-                        deleteItemFallback(targetItem.id);
                     }
-                } else {
-                    deleteItemFallback(targetItem.id);
                 }
 
                 closeDeleteModal();
                 return;
             }
-        }
-
-        function deleteItemFallback(itemId) {
-            customCollection = customCollection.filter(i => i.id !== itemId);
-            saveToLocalFallback();
-            mergeAndRender();
-            showAlert("로컬 피드 갱신 💾", "맛집 데이터가 브라우저 가상 스레드 상에서 제거되었습니다.");
         }
 
         let currentAuthInteractionId = null;
@@ -1675,13 +1638,13 @@
             const currentPickStatus = interactionsData[interactionId]?.isSoohyunPick || false;
             const nextPickStatus = !currentPickStatus;
 
-            // 낙관적 업데이트 기법 적용 (서버 딜레이 없이 즉각 로컬 변수를 변경하여 신속하게 렌더링)
+            // Direct local data mutation for instant reactivity
             if (!interactionsData[interactionId]) {
                 interactionsData[interactionId] = { likes: 0, comments: [] };
             }
             interactionsData[interactionId].isSoohyunPick = nextPickStatus;
 
-            // UI 즉각 강제 재배포
+            saveToLocalFallback();
             mergeAndRender();
             const targetItem = findItemInLists(currentViewingItemId, currentViewingIsUserAdded);
             if (targetItem) renderDetailContent(targetItem);
@@ -1693,10 +1656,8 @@
                     showAlert("설정 완료 🎉", nextPickStatus ? "성공적으로 '김수현 기획자 PICK' 배지가 부여되었습니다!" : "김수현 기획자 PICK이 안전하게 해제되었습니다.");
                 } catch (e) {
                     console.error("Error toggling pick in firebase", e);
-                    saveToLocalFallback();
                 }
             } else {
-                saveToLocalFallback();
                 showAlert("로컬 설정 완료 💾", nextPickStatus ? "임시 브라우저 세션에 '수현 PICK'이 지정되었습니다!" : "임시 지정이 정상 해제되었습니다.");
             }
         }
@@ -1729,6 +1690,11 @@
                 .replace(/"/g, "&quot;")
                 .replace(/'/g, "&#039;");
         }
+
+        // Draw initially and bind resize event so roulette is ALWAYS visible on load
+        loadLocalFallback();
+        drawRoulette();
+        window.addEventListener('resize', drawRoulette);
     </script>
 </body>
 </html>
